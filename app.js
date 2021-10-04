@@ -2,7 +2,7 @@
 var App = () => (
   <div>
     <h2>My Todo List</h2>
-    <GroceryList list={['Cds', 'Merch', 'Bagels']}/>
+    <GroceryList groceryItems={['Cds', 'Merch', 'Bagels']}/>
   </div>
 );
 
@@ -41,7 +41,7 @@ render() {
     // You can pass inline styles using React's `style` attribute to any component
     // snake-cased css properties become camelCased this this object
     return (
-      <li style={style} onClick={this.onListItemClick.bind(this)}>{this.props.list}</li>
+      <li style={style} onClick={this.onListItemClick.bind(this)}>{this.props.groceryItems}</li>
     );
   }
 }
@@ -50,8 +50,8 @@ render() {
 // Updated TodoList to use TodoListItemsComponents
 var GroceryList = (props) => (
   <ul>
-    {props.list.map(list =>
-      <GroceryListItem list={list} />
+    {props.groceryItems.map(groceryItems =>
+      <GroceryListItem groceryItems={groceryItems} />
     )}
   </ul>
 );
