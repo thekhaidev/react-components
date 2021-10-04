@@ -36,26 +36,55 @@ var App = () => (
 
 // Handling Events
 
-var TodoList = (props) => {
+// var TodoList = (props) => {
 
-  // This function will be called when the first `<li>` below is clicked on
-  // Notice that event handling functions receive an `event` object
-  // We want to define it where it has access to `props`
+//   // This function will be called when the first `<li>` below is clicked on
+//   // Notice that event handling functions receive an `event` object
+//   // We want to define it where it has access to `props`
 
-  var onListItemClick = (event) => {
-    console.log('I got clicked');
-  };
+//   var onListItemClick = (event) => {
+//     console.log('I got clicked');
+//   };
 
-  // Because we used curly braces with this arrow function
-  // we have to write an explicit `return` statement
+//   // Because we used curly braces with this arrow function
+//   // we have to write an explicit `return` statement
+//   return (
+//     <ul>
+//      <TodoListItem />
+//      <TodoListItem />
+//      <TodoListItem />
+//     </ul>
+//   );
+// }
+
+
+// Refactoring TodoListItem
+// Using ES6 Class Declaration
+class TodoListItem extends React.Component {
+  constructor(props) {
+    super(props); // This is same as React.component.call(this, props) in ES5
+  }
+
+  // Class must have render method
+// Stateless functional components are basically just this
+render() {
+  // Must use return due to curly brackets
+  // Using this.props instead of props
   return (
-    <ul>
-      <li onClick={onListItemClick}>{props.todos[0]}</li>
-      <li>{props.todos[1]}</li>
-      <li>{props.todos[2]}</li>
-    </ul>
+    <li>{this.props.todo}</li>
   );
 }
+
+}
+
+var TodoList = (props) => (
+  <ul>
+    {props.todos.map(todo =>
+      <TodoListItem todo={todo} />
+    )}
+  </ul>
+);
+
 
 
 ReactDOM.render(<App />, document.getElementById("app"));
