@@ -2,65 +2,15 @@
 var App = () => (
   <div>
     <h2>My Todo List</h2>
-    <TodoList todos={['Find drip', 'Find swag', 'Repeat']}/>
+    <GroceryList list={['Cds', 'Merch', 'Bagels']}/>
   </div>
 );
 
-// Version 1 no Props
-// var TodoList = () => (
-//   <div><ul>
-//     <Drip />
-//     <Swag />
-//     </ul>
-//     </div>
-// );
-
-// var Drip = () => (
-//   <li>Drip</li>
-// );
-
-// var Swag = () => (
-//   <li>Swag</li>
-// );
-
-// Version 2 using props
-
-// var TodoList = (props) => (
-//   <div><ul>
-//     <li>{props.todos[0]}</li>
-//     <li>{props.todos[1]}</li>
-//     <li>{props.todos[2]}</li>
-//     </ul>
-//     </div>
-// );
-
-// Handling Events
-
-// var TodoList = (props) => {
-
-//   // This function will be called when the first `<li>` below is clicked on
-//   // Notice that event handling functions receive an `event` object
-//   // We want to define it where it has access to `props`
-
-//   var onListItemClick = (event) => {
-//     console.log('I got clicked');
-//   };
-
-//   // Because we used curly braces with this arrow function
-//   // we have to write an explicit `return` statement
-//   return (
-//     <ul>
-//      <TodoListItem />
-//      <TodoListItem />
-//      <TodoListItem />
-//     </ul>
-//   );
-// }
 
 
-// Refactoring TodoListItem
+// Refactoring GroceryListItem
 // Using ES6 Class Declaration
-class TodoListItem extends React.Component {
+class GroceryListItem extends React.Component {
   constructor(props) {
     super(props); // This is same as React.component.call(this, props) in ES5
   }
@@ -71,16 +21,16 @@ render() {
   // Must use return due to curly brackets
   // Using this.props instead of props
   return (
-    <li>{this.props.todo}</li>
+    <li>{this.props.list}</li>
   );
 }
 
 }
-
-var TodoList = (props) => (
+// Updated TodoList to use TodoListItemsComponents
+var GroceryList = (props) => (
   <ul>
-    {props.todos.map(todo =>
-      <TodoListItem todo={todo} />
+    {props.list.map(list =>
+      <GroceryListItem list={list} />
     )}
   </ul>
 );
