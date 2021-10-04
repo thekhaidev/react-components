@@ -1,6 +1,13 @@
 // TODO
 var App = () => (
-<div>What up dawg.</div>
+  <div>
+    <h2>My Todo List</h2>
+    <TodoList />
+  </div>
+);
+
+var TodoList = () => (
+  <div>Placeholder</div>
 );
 
 ReactDOM.render(<App />, document.getElementById("app"));
