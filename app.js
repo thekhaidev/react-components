@@ -35,7 +35,7 @@ render() {
     // Making the style conditional on our `state` lets us
     // update it based on user interactions.
     var style = {
-      textDecoration: this.state.bought ? 'line-through' : 'none'
+      fontWeight: this.state.bought ? 'bold' : 'normal'
     };
 
     // You can pass inline styles using React's `style` attribute to any component
