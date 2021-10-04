@@ -7,7 +7,11 @@ var App = () => (
 );
 
 var TodoList = () => (
-  <div>Placeholder</div>
+  <div><ul>
+    <li>Potato</li>
+    <li>Salad</li>
+    </ul>
+    </div>
 );
 
 ReactDOM.render(<App />, document.getElementById("app"));
