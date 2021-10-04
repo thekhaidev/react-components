@@ -8,10 +8,18 @@ var App = () => (
 
 var TodoList = () => (
   <div><ul>
-    <li>Potato</li>
-    <li>Salad</li>
+    <Drip />
+    <Swag />
     </ul>
     </div>
+);
+
+var Drip = () => (
+  <li>Drip</li>
+);
+
+var Swag = () => (
+  <li>Swag</li>
 );
 
 ReactDOM.render(<App />, document.getElementById("app"));
